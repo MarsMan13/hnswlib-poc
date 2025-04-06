@@ -907,8 +907,10 @@ class BFIndex {
 };
 
 
-PYBIND11_PLUGIN(hnswlib) {
-        py::module m("hnswlib");
+//! PYBIND11_PLUGIN(hnswlib) {
+PYBIND11_MODULE(hnswlib_poc, m) {
+        m.doc() = "hnswlib_poc python binding";
+        // py::module m("hnswlib");
 
         py::class_<Index<float>>(m, "Index")
         .def(py::init(&Index<float>::createFromParams), py::arg("params"))
@@ -1009,5 +1011,5 @@ PYBIND11_PLUGIN(hnswlib) {
         .def("get_max_elements", &BFIndex<float>::getMaxElements)
         .def("get_current_count", &BFIndex<float>::getCurrentCount)
         .def_readwrite("num_threads", &BFIndex<float>::num_threads_default);
-        return m.ptr();
+        //! return m.ptr();
 }

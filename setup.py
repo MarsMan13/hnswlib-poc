@@ -32,7 +32,7 @@ extra_objects = []
 
 ext_modules = [
     Extension(
-        'hnswlib',
+        'hnswlib_poc',
         source_files,
         include_dirs=include_dirs,
         libraries=libraries,
@@ -129,12 +129,12 @@ class BuildExt(build_ext):
 
 
 setup(
-    name='hnswlib',
+    name='hnswlib_poc',
     version=__version__,
-    description='hnswlib',
-    author='Yury Malkov and others',
+    description='hnswlib_poc',
+    author='Yury Malkov and others + CGCG',
     url='https://github.com/yurymalkov/hnsw',
-    long_description="""hnsw""",
+    long_description="""manipulated hnswlib for hnsw poc""",
     ext_modules=ext_modules,
     install_requires=['numpy'],
     cmdclass={'build_ext': BuildExt},
